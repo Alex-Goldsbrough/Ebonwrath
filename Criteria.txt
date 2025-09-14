@@ -1,0 +1,48 @@
+Text Adventure Coding Task — Criteria
+
+1. Planning & Design
+- Trello board: Epics → Features → Tasks.
+- Game world mapping: rooms, items, NPCs, puzzles.
+- Core mechanics: exploration, inventory, puzzles, end game.
+
+2. Project Setup
+- New Python project in VS Code.
+- Push to GitHub repository.
+- Use branches, commits, PRs, and tags.
+- Add README.md with instructions on running the game.
+
+3. Architecture
+- No single “god script”.
+- Separate modules:
+  - Engine: loop, commands, state machine.
+  - World: rooms, exits, items, NPCs (data-driven).
+  - Player: inventory, stats.
+  - Puzzles: three distinct puzzles.
+  - IO: terminal interaction.
+- Config/data stored in JSON files (not hardcoded).
+
+4. Game Features
+- Exploration: walk between rooms via text commands.
+- Inventory system: pick up, use, examine items.
+- Dialogue system: at least one NPC with choices.
+- Three maths puzzles (gating progress):
+  1. Logic/optimisation puzzle.
+  2. Modular arithmetic puzzle.
+  3. Graph/number puzzle.
+- End state: collect three sigils to unlock the final room.
+
+5. Development Principles
+- Unit tests for puzzles and core logic.
+- Clean code: functions, classes, no “god script”.
+- Type hints and docstrings.
+- Linting, formatting, type-checking.
+- GitHub Actions CI/CD pipeline running tests automatically.
+
+6. Delivery
+- At least three tagged milestones: v0.1, v0.2, v1.0.
+- README.md includes:
+  - Project overview.
+  - How to run the game.
+  - Trello link.
+  - Design notes.
+- Final game must be playable.
