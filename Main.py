@@ -1,21 +1,21 @@
-# Designed and created by Alex Goldsbrough
-
+########################################################################################
+#                                                                                      #
+#                                                                                      #
+#   ███████╗██████╗░░█████╗░███╗░░██╗░██╗░░░░░░░██╗██████╗░░█████╗░████████╗██╗░░██╗   #
+#   ██╔════╝██╔══██╗██╔══██╗████╗░██║░██║░░██╗░░██║██╔══██╗██╔══██╗╚══██╔══╝██║░░██║   #
+#   █████╗░░██████╦╝██║░░██║██╔██╗██║░╚██╗████╗██╔╝██████╔╝███████║░░░██║░░░███████║   #
+#   ██╔══╝░░██╔══██╗██║░░██║██║╚████║░░████╔═████║░██╔══██╗██╔══██║░░░██║░░░██╔══██║   #
+#   ███████╗██████╦╝╚█████╔╝██║░╚███║░░╚██╔╝░╚██╔╝░██║░░██║██║░░██║░░░██║░░░██║░░██║   #
+#   ╚══════╝╚═════╝░░╚════╝░╚═╝░░╚══╝░░░╚═╝░░░╚═╝░░╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝   #
+#                                                                                      #
+#                      Designed and created by Alex Goldsbrough                        #
+#                                                                                      #
 ########################################################################################
 
 # Code Imports
 import os
 from Rooms.Entrance import Entrance
-
-########################################################################################
-
-
-#███████╗██████╗░░█████╗░███╗░░██╗░██╗░░░░░░░██╗██████╗░░█████╗░████████╗██╗░░██╗
-#██╔════╝██╔══██╗██╔══██╗████╗░██║░██║░░██╗░░██║██╔══██╗██╔══██╗╚══██╔══╝██║░░██║
-#█████╗░░██████╦╝██║░░██║██╔██╗██║░╚██╗████╗██╔╝██████╔╝███████║░░░██║░░░███████║
-#██╔══╝░░██╔══██╗██║░░██║██║╚████║░░████╔═████║░██╔══██╗██╔══██║░░░██║░░░██╔══██║
-#███████╗██████╦╝╚█████╔╝██║░╚███║░░╚██╔╝░╚██╔╝░██║░░██║██║░░██║░░░██║░░░██║░░██║
-#╚══════╝╚═════╝░░╚════╝░╚═╝░░╚══╝░░░╚═╝░░░╚═╝░░╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝
-
+import inventory
 
 ########################################################################################
 
@@ -40,21 +40,25 @@ def prompt() -> str:
                                                           ``--------..._``--.__
                   
 Long ago, an ancient fortress sank into the earth, its halls claimed by darkness and creatures of stone.
-Legends speak of three sacred gems hidden within, each bound by puzzles and forgotten guardians.
-Only those who claim them may face the final horror that stirs in the deepest chamber.
+ Legends speak of three sacred gems hidden within, each bound by puzzles and forgotten guardians. Only 
+        those who claim them may face the final horror that stirs in the deepest chamber.
                   
-                            Do you wish to challenge this dunegon?
+                                Do you wish to challenge this dunegon?
 
-                     1) Play              2) Help            3) Quit
+                         1) Play              2) Help            3) Quit
 
 """)
     
             return input("Enter Selection: ").strip().lower()
 
 
+########################################################################################
+
 # Clears CMD screen
 def clear():
         os.system('cls' if os.name == 'nt' else 'clear')
+
+########################################################################################
 
 def main():
     while True:
@@ -62,6 +66,7 @@ def main():
         choice = prompt()
         if choice in ("1", "play", "start"):
                clear()
+               inventory.reset_inventory()
                Entrance().start()
         elif choice in ("2", "help"):
                 clear()
@@ -85,3 +90,5 @@ The road is yours to shape, but beware… every choice bends destiny itself.
 
 if __name__ == "__main__":
     main()
+
+########################################################################################

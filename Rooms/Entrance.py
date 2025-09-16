@@ -1,5 +1,5 @@
-from .Hallway import Hallway
 import os
+import inventory
 
 # Clears CMD screen
 def clear():
@@ -44,10 +44,15 @@ an ancient wooden door looms ahead, its iron hinges rusted but intact.
                 print("\nAgainst all logic, the door slowly opens on its own. An eerie voice whispers your name. A chill lingers in your bones, lowering your morale slightly, but the fortress welcomes you inside.")
                 pause()
                 clear()
+                from .Hallway import Hallway
                 Hallway().start()
                 continue
             elif choice in ("q", "quit"):
-                return
+                break
+            elif choice in ("inv", "inventory"):
+                inventory.show_inventory()
+                pause()
+                continue
             else:
                 print("\nNothing happens. Choose a valid option.")
                 pause()
