@@ -1,13 +1,18 @@
-from Rooms.Gate import Gate
+from .Hallway import Hallway
 import os
 
 # Clears CMD screen
 def clear():
-        os.system('cls' if os.name == 'nt' else 'clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
 
-class Entrance():
+def pause():
+    input("\n[Press Enter]")
+
+class Entrance:
     def start(self):
-        print(r"""
+        while True:
+            clear()
+            print(r"""
 You stand before the crumbling gates of Ebonwrath, a fortress swallowed by stone and silence. 
 The air is heavy with dust and the faint stench of decay. Moss creeps along broken walls, and 
 an ancient wooden door looms ahead, its iron hinges rusted but intact.
@@ -17,22 +22,33 @@ an ancient wooden door looms ahead, its iron hinges rusted but intact.
           
     1) Push the door open with force.
     2) Examine the door carefully.
-    3) Look around the ruins outside.
+    3) Wait in silence before the gate.
     4) Knock on the door.
-          
-          """)
-        
-        choice = input("Enter Selection: ").strip()
+""")
+            
+            choice = input("Enter Selection: ").strip().lower()
 
-        if choice == "1":
-            print("\nYou throw your weight against the door. It groans loudly but begins to budge, dust raining down.")
-        elif choice == "2":
-            print("\nYou trace your fingers over the wood and iron. Scratches mark the surface, and you spot a faint carving—runes long forgotten.")
-        elif choice == "3":
-            print("\nYou step back and scan the ruins. Fallen stones form jagged silhouettes, and in the distance you hear the faint rustle of movement.")
-        elif choice == "4":
-            print("\nYou knock firmly on the wood. The sound echoes unnaturally. After a pause, the door creaks open...")
-            clear()
-            Gate().start()  # move to Gate room
-        else:
-            print("\nNothing happens. Perhaps choose a valid option.")
+            if choice == "1":
+                print("\nYou throw your weight at the ancient wood. It doesn’t budge. Dust falls on your head, and your shoulder aches. Congratulations, you’ve achieved nothing but looking like a fool in front of a door.")
+                pause()
+                continue
+            elif choice == "2":
+                print("\nThe runes carved into the wood flicker faintly when touched. You feel the door resisting you, as though it judges your intent. The path remains closed.")
+                pause()
+                continue
+            elif choice == "3":
+                print("\nThe longer you stand still, the colder the air becomes. A distant sound, like chains dragging on stone, stirs within the fortress. The atmosphere grows oppressive, pressing you to act.")
+                pause()
+                continue
+            elif choice == "4":
+                print("\nAgainst all logic, the door slowly opens on its own. An eerie voice whispers your name. A chill lingers in your bones, lowering your morale slightly, but the fortress welcomes you inside.")
+                pause()
+                clear()
+                Hallway().start()
+                continue
+            elif choice in ("q", "quit"):
+                return
+            else:
+                print("\nNothing happens. Choose a valid option.")
+                pause()
+                continue

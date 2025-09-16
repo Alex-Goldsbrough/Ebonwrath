@@ -3,29 +3,8 @@
 ########################################################################################
 
 # Code Imports
-import Rooms.Altar
-import Rooms.Armory
-import Rooms.Barracks
-import Rooms.Boss
-import Rooms.Catacombs
-import Rooms.Cells
-import Rooms.Chapel
-import Rooms.Crypt
-import Rooms.DeathScreen
-import Rooms.Dining
-from Rooms.Entrance import Entrance
-from Rooms.Gate import Gate
-import Rooms.Guard_Post
-import Rooms.Kitchen
-import Rooms.Library
-import Rooms.Pantry
-import Rooms.Rune
-import Rooms.Shrine
-import Rooms.Storage
-import Rooms.Torture
-import Rooms.Trap
-import Rooms.WinScreen
 import os
+from Rooms.Entrance import Entrance
 
 ########################################################################################
 
@@ -81,12 +60,12 @@ def main():
     while True:
         clear()
         choice = prompt()
-        if choice == "1":
+        if choice in ("1", "play", "start"):
                clear()
-               Entrance().start() # Starts the game
-        elif choice == "2":
+               Entrance().start()
+        elif choice in ("2", "help"):
                 clear()
-                print("""
+                print(r"""
 A strange light flickers in the darkness…  
 From the glow steps an old mage, his voice echoing in your mind:  
 
@@ -98,7 +77,7 @@ Adventurer, heed my words!
 The road is yours to shape, but beware… every choice bends destiny itself. 
                     """)
                 input("\n[Press Enter]")
-        elif choice == "3" or "q" or "quit":
+        elif choice in ("3", "q", "quit"):
                break
         else:
             print("Invalid Selection")
