@@ -1,5 +1,19 @@
+########################################################################################
+
+
+#                       ░█████╗░███████╗██╗░░░░░██╗░░░░░░██████╗
+#                       ██╔══██╗██╔════╝██║░░░░░██║░░░░░██╔════╝
+#                       ██║░░╚═╝█████╗░░██║░░░░░██║░░░░░╚█████╗░
+#                       ██║░░██╗██╔══╝░░██║░░░░░██║░░░░░░╚═══██╗
+#                       ╚█████╔╝███████╗███████╗███████╗██████╔╝
+#                       ░╚════╝░╚══════╝╚══════╝╚══════╝╚═════╝░
+
+########################################################################################
+
 import os
 import inventory
+
+########################################################################################
 
 # Clears CMD screen
 def clear():
@@ -20,10 +34,10 @@ silence presses down like a weight.
 
     How do you wish to continue?
           
-    1) Peer into one of the cells
-    2) Search the straw on the floor
-    3) Call out
-    4) Continue forward down the corridor
+    1) Peer into one of the cells.
+    2) Search the straw on the floor.
+    3) Call out.
+    4) Continue forward down the corridor.
 """)
             
             choice = input("Enter Selection: ").strip().lower()
@@ -43,7 +57,7 @@ silence presses down like a weight.
                 pause()
                 continue
             elif choice == "4":
-                print("\nThe corridor narrows and bends ahead, pulling you deeper into the fortress.")
+                print("\nThe passage narrows and descends steeply. A faint smell of earth and decay fills the air. You emerge into the Catacombs, where rows of stone coffins stretch into the dark.")
                 pause()
                 clear()
                 from .Catacombs import Catacombs

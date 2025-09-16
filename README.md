@@ -28,3 +28,6 @@ Once all gems are collected, the final boss room unlocks.
 
 ### Running the Game
 Clone the repository and start the game.
+
+### Credit
+ASCII art sourced from: [Here](https://ascii.co.uk) and [Here](https://www.asciiart.eu).

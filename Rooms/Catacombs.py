@@ -1,0 +1,2 @@
+class Catacombs():
+    pass
