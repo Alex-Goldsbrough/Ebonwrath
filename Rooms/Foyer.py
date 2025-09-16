@@ -11,6 +11,7 @@
 ########################################################################################
 
 import os
+import sys
 import inventory
 
 ########################################################################################
@@ -73,7 +74,7 @@ fortress itself is watching.
                     continue
                 continue
             elif choice in ("q", "quit"):
-                break
+                sys.exit(0)
             elif choice in ("inv", "inventory"):
                 inventory.show_inventory()
                 pause()

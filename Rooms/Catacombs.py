@@ -1,2 +1,0 @@
-class Catacombs():
-    pass

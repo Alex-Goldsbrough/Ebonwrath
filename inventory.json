@@ -2,11 +2,12 @@
   "small_silver_key": false,
   "iron_key": false,
   "rusted_lever_handle": false,
-  "stone_tablet_fragment": false,
+  "stone_tablet_fragment": true,
   "rope": false,
   "brass_medallion": true,
   "empty_flask": false,
   "hammer": false,
   "obsidian_shard": false,
-  "ancient_coin": false
+  "ancient_coin": false,
+  "pedestal_locked": true
 }

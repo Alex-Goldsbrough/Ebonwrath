@@ -11,6 +11,7 @@
 ########################################################################################
 
 import os
+import sys
 import inventory
 
 ########################################################################################
@@ -43,15 +44,51 @@ silence presses down like a weight.
             choice = input("Enter Selection: ").strip().lower()
 
             if choice == "1":
-                print("\nThe bars are bent just enough to slip your head through. Inside, you see only bones scattered in the straw. Carved into the wall is a crude drawing of three circles arranged in a triangle. You step back uneasy.")
+                print("""
+ ---.----.__..----.----| _|_||___||___||___||___||___||___||_|_ |
+    |        |    |    | -.-..---..---..---..---..---..---..-.- |--.-
+ ---'--.-----'----'--.-|  | ||   ||   ||   ||   ||   ||   || |  | `|
+       |:           (| |  | ||   ||   ||   ||   ||   ||   || |  |--'-
+       |:.           | | _|_||___||___||___||___||___||___||_|_ |
+ ------'----.-.,----.'-| -.-..---..---..---..---..---..---..-.- |-.--
+        ,/) |       |  |  | ||   ||   ||   ||   ||   ||   || |  | |`
+ ----.---8--'--.----'--|  | ||   ||   ||   ||   ||   ||   || |  | |
+     |   8     |:      | _|_||___||___||___||___||___||___||_|_ |-'--
+     | ,)//    |:.     | -.-..---..---..---..---..---..---..-.- |:.
+ ----'-`=;'--.-'-.----.|  | ||   ||   ||   ||   ||   ||   || |  |--.-
+       //   /_ _( \    |  | ||   ||   ||   ||   ||   ||   || |  | /|
+ ---.-//----)/\,'_/----| _|_||___||___||___||___||___||___||_|_ | `|
+    |/|     `;=.(      | -.-..---..---..---..---..---..---..-.- |--'-
+ (  |`.`.   |`,-/      |,-'-||---||---||---||---||---||---||-'-.|
+ -`-'-.`.`-.';'=`.-..--'-.--------.-------------.--.-------.----'--.-
+      |  `-./.}{-'\.)    |        )             |   `)     |       \
+      |    :`-}{-''||    |:.      |   ,_        |          |:.     |
+ ---'`'-.--|`-}{-'||)----'-.------'--'.,`--.----'--------.-'-------'-
+        |  :`-`'-'/)|      |               |:.           |
+ -.-----'--;`.}{,`.||----,-'--------.------'---.--------,'--.,-------
+  |:     ,'/.`..'_(/(    |:         |          |             \
+  |:.  ,',' |`--`.('))   |:.        |          |             |:
+ -'--,' <.._|__,. >`,----'----------'--------.,'-------------'-------
+     ``----....(','
+            _,'>'
+            )/
+            `'
+
+You press your face to the bars and peer inside. In the dim light you make out a skeleton slumped against the wall, a shackle still clasped around its wrist. Its jaw hangs open as though it died mid-scream.
+                      """)
                 pause()
                 continue
             elif choice == "2":
-                print("\nBeneath the rotting straw in one cell, your hand closes around something solid. You lift it free: a Brass Medallion, tarnished but intact. Its surface bears the image of a serpent coiled around a crown.")
-                print("\n\033[92mYou pocket the brass medallion into your satchel.\033[0m")
-                inventory.set_item("brass_medallion", True)
-                pause()
-                continue
+                if not inventory.has_item("brass_medallion"):
+                    print("\nBeneath the rotting straw in one cell, your hand closes around something solid. You lift it free: a Brass Medallion, tarnished but intact. Its surface bears the image of a serpent coiled around a crown.")
+                    print("\n\033[92mYou pocket the brass medallion into your satchel.\033[0m")
+                    inventory.set_item("brass_medallion", True)
+                    pause()
+                    continue
+                else:
+                    print("\nYou sift through the rotting straw once more, but find nothing else. Only dust, bones, and the smell of decay remain.")
+                    pause()
+                    continue
             elif choice == "3":
                 print("\nYour voice bounces between the stone walls. For a moment it almost sounds like someone answers, but when you listen again the corridor is empty.")
                 pause()
@@ -60,11 +97,11 @@ silence presses down like a weight.
                 print("\nThe passage narrows and descends steeply. A faint smell of earth and decay fills the air. You emerge into the Catacombs, where rows of stone coffins stretch into the dark.")
                 pause()
                 clear()
-                from .Catacombs import Catacombs
-                Catacombs().start()
+                from .Chamber import Chamber
+                Chamber().start()
                 continue
             elif choice in ("q", "quit"):
-                break
+                sys.exit(0)
             elif choice in ("inv", "inventory"):
                 inventory.show_inventory()
                 pause()

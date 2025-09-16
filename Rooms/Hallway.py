@@ -11,6 +11,7 @@
 ########################################################################################
 
 import os
+import sys
 import inventory
 
 ########################################################################################
@@ -67,7 +68,14 @@ a place long forgotten.
 
             if choice == "1":
                 if not inventory.has_item("iron_key"):
-                    print("\nYou pry at loose stone near the floor. Beneath it, you uncover a small iron key, cold to the touch. Its purpose is unclear.")
+                    print("""
+     8 8 8 8                     ,ooo.
+     8a8 8a8                    oP   ?b
+    d888a888zzzzzzzzzzzzzzzzzzzz8     8b
+     `""^""'                    ?o___oP'                          
+
+You pry at loose stone near the floor. Beneath it, you uncover a small iron key, cold to the touch. Its purpose is unclear.
+                          """)
                     print("\n\033[92mYou pocket the iron key into your satchel.\033[0m")
                     inventory.set_item("iron_key", True)
                     pause()
@@ -92,7 +100,7 @@ a place long forgotten.
                 clear()
                 continue
             elif choice in ("q", "quit"):
-                break
+                sys.exit(0)
             elif choice in ("inv", "inventory"):
                 inventory.show_inventory()
                 pause()
