@@ -4,10 +4,9 @@
   "rusted_lever_handle": false,
   "stone_tablet_fragment": true,
   "rope": false,
-  "brass_medallion": true,
+  "brass_medallion": false,
   "empty_flask": false,
   "hammer": false,
   "obsidian_shard": false,
-  "ancient_coin": false,
-  "pedestal_locked": true
+  "ancient_coin": false
 }
