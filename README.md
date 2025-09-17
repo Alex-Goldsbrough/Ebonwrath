@@ -28,7 +28,7 @@ Your goal: gather **three magical gems** by solving puzzles and facing challenge
 ### Running the Game
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/ebonwrath.git
+git clone https://github.com/Alex-Goldsbrough/ebonwrath.git
 cd ebonwrath
 
 # Run the game
